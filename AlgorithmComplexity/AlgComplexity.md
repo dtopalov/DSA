@@ -47,4 +47,4 @@ long CalcSum(int[,] matrix, int row)
 
 Console.WriteLine(CalcSum(matrix, 0));
 ```
-The expected complexity is n*m as the *for* cycle in the CalcSum method is of complexity O(n) and the method itself is called m times, so the total expected running time is O(n\*m). 
+The expected complexity is n\*m as the *for* cycle in the CalcSum method is of complexity O(n) and the method itself is called m times, so the total expected running time is O(n\*m). 
