@@ -45,7 +45,20 @@
             {
                 for (int j = 0; j < this.Size; j++)
                 {
+                    if (this.Lab[i, j] == "X")
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                    }
+                    else if (this.Lab[i, j] == "u")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else if (this.Lab[i, j] == "S")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
                     Console.Write(this.Lab[i, j].PadLeft(4));
+                    Console.ResetColor();
                 }
 
                 Console.WriteLine();
@@ -56,60 +69,64 @@
         {
             var currentPath = new Queue<int[]>();
             currentPath.Enqueue(this.startCoordinates);
-            var currentCell = this.startCoordinates;
             bool canContinue = true;
-            int currentNumber = 1;
 
-            while (canContinue)
+            while (currentPath.Count > 0)
             {
+                var currentCell = currentPath.Dequeue();
+
                 bool canGoUp = currentCell[0] - 1 >= 0 && this.Lab[currentCell[0] - 1, currentCell[1]] == "0";
                 bool canGoDown = currentCell[0] + 1 < this.Size && this.Lab[currentCell[0] + 1, currentCell[1]] == "0";
                 bool canGoRight = currentCell[1] + 1 < this.Size && this.Lab[currentCell[0], currentCell[1] + 1] == "0";
                 bool canGoLeft = currentCell[1] - 1 >= 0 && this.Lab[currentCell[0], currentCell[1] - 1] == "0";
-                canContinue = canGoLeft || canGoDown || canGoRight || canGoUp;
+
                 var currentNeighbours = new List<int[]>();
 
                 if (canGoLeft)
                 {
-                    currentNeighbours.Add(new[] {currentCell[0], currentCell[1] - 1});
+                    currentPath.Enqueue(new[] { currentCell[0], currentCell[1] - 1 });
+                    currentNeighbours.Add(new[] { currentCell[0], currentCell[1] - 1 });
                 }
 
                 if (canGoRight)
                 {
+                    currentPath.Enqueue(new[] { currentCell[0], currentCell[1] + 1 });
                     currentNeighbours.Add(new[] { currentCell[0], currentCell[1] + 1 });
                 }
 
                 if (canGoUp)
                 {
+                    currentPath.Enqueue(new[] { currentCell[0] - 1, currentCell[1] });
                     currentNeighbours.Add(new[] { currentCell[0] - 1, currentCell[1] });
                 }
 
                 if (canGoDown)
                 {
+                    currentPath.Enqueue(new[] { currentCell[0] + 1, currentCell[1] });
                     currentNeighbours.Add(new[] { currentCell[0] + 1, currentCell[1] });
                 }
 
-                if (currentNeighbours.Count > 0)
-                {
-                    currentCell = currentNeighbours[0];
-                    foreach (var neighbour in currentNeighbours)
-                    {
-                        if (int.Parse(this.Lab[neighbour[0], neighbour[1]]) == 0)
-                        {
-                            this.Lab[neighbour[0], neighbour[1]] = currentNumber.ToString();
-                            currentPath.Enqueue(neighbour);
-                        }
-                    }
-                    currentPath.Dequeue();
-                }
+                int currentNumber;
+                bool isNumberValid = int.TryParse(this.Lab[currentCell[0], currentCell[1]], out currentNumber);
 
-                currentNeighbours.Clear();
-                currentNumber++;
+                foreach (var neighbour in currentNeighbours)
+                {
+                    if (int.Parse(this.Lab[neighbour[0], neighbour[1]]) == 0)
+                    {
+                        this.Lab[neighbour[0], neighbour[1]] = (currentNumber + 1).ToString();
+                    }
+                }
             }
 
-            while (currentPath.Count > 0)
+            for (int i = 0; i < this.Size; i++)
             {
-                Console.WriteLine(string.Join(", ", currentPath.Dequeue()));
+                for (int j = 0; j < this.Size; j++)
+                {
+                    if (this.Lab[i, j] == "0")
+                    {
+                        this.Lab[i, j] = "u";
+                    }
+                }
             }
         }
     }
