@@ -156,6 +156,30 @@
             }
         }
 
+        public ICollection<Triple<T1, T2, T3>> this[T2 key]
+        {
+            get
+            {
+                return this.secondKeyValueMultiDictionary[key];
+            }
+            set
+            {
+                this.secondKeyValueMultiDictionary[key] = value;
+            }
+        }
+
+        public ICollection<Triple<T1, T2, T3>> this[CompositeKey<T1, T2> key]
+        {
+            get
+            {
+                return this.compositeKeyValueMultiDictionary[key];
+            }
+            set
+            {
+                this.compositeKeyValueMultiDictionary[key] = value;
+            }
+        }
+
         public ICollection<T1> KeysT1
         {
             get
