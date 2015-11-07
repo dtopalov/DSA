@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriorityQueueWithBinaryHeap", "PriorityQueueWithBinaryHeap\PriorityQueueWithBinaryHeap.csproj", "{794FAE58-93B7-4F51-9DD5-239C5EA6E442}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchByRange", "SearchByRange\SearchByRange.csproj", "{7ED66D4F-4813-4ED0-8844-8D1328F7EB30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinder", "WordFinder\WordFinder.csproj", "{CC4BB520-5233-4157-B98E-DB9260B1898F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{794FAE58-93B7-4F51-9DD5-239C5EA6E442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{794FAE58-93B7-4F51-9DD5-239C5EA6E442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{794FAE58-93B7-4F51-9DD5-239C5EA6E442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{794FAE58-93B7-4F51-9DD5-239C5EA6E442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ED66D4F-4813-4ED0-8844-8D1328F7EB30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED66D4F-4813-4ED0-8844-8D1328F7EB30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED66D4F-4813-4ED0-8844-8D1328F7EB30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED66D4F-4813-4ED0-8844-8D1328F7EB30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC4BB520-5233-4157-B98E-DB9260B1898F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC4BB520-5233-4157-B98E-DB9260B1898F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC4BB520-5233-4157-B98E-DB9260B1898F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC4BB520-5233-4157-B98E-DB9260B1898F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
